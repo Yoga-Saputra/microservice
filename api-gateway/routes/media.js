@@ -1,9 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET media page. */
-router.get('/', function(req, res, next) {
-    res.send('media');
-});
+const mediaHandler = require('./handler/media')
+
+// media routers
+router.get('/', mediaHandler.getall);
+router.post('/', mediaHandler.create);
+router.delete('/:id', mediaHandler.destroy);
 
 module.exports = router;
