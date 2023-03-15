@@ -10,7 +10,6 @@ module.exports = async (req, res) => {
         const media = await api.delete(`/media/${id}`)
         return res.json(media.data)
     } catch (error) {
-
         if (error.data === 'ECONNREFUSED') { 
         return res.status(500).json({ status: 'error', message: 'service unavailable'})
         }
